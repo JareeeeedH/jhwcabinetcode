@@ -1,0 +1,53 @@
+$barMain: #1E1E42;
+$barSecond: #00587A;
+
+.title_Link{
+    color: $barMain;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .box-shadow{
+    //不給border、使用boxshadow效果。
+    box-shadow: 0px 0px 10px rgba(black, 0.5);
+    border-radius: 5px;
+   }
+  
+   .box-shadow:hover{
+    box-shadow: 0px 2px 10px rgba(0, 46, 161,0.7);
+   }
+
+
+  .list-group-item:hover{
+    border-bottom: 2px solid $barMain;
+    cursor: pointer;
+  }
+
+
+  .wine_photo{
+    height: 200px;
+    cursor:pointer;
+    transition-duration: 0.5s;
+  }
+
+  // 產品縮放效果
+  .wine_photo:hover{
+    transform: scale(1.2);
+  }
+
+  
+
+
+  
+
+
+.wine_btn{
+  opacity: 0.1;
+}
+// Hover讓按鈕出現
+.col-md-4:hover{
+.wine_btn{
+  opacity: 1.0;
+  }
+}
