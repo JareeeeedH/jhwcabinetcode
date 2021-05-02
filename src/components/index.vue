@@ -298,8 +298,16 @@
         },
         data() {
             return {
-                isLoading: false, //全域loading控制
+                // isLoading: false, 
+                //全域loading控制改使用 vuex控制
             }
+        },
+
+        // 使用computed讀取 vuex中的資料
+        computed:{
+            isLoading(){
+                return this.$store.state.isLoading;
+            },
         },
 
         methods: {
@@ -320,7 +328,14 @@
                 const vm = this;
 
                 // 讀取出現
-                vm.isLoading = true;
+                //此頁data修改為 vuex資料控制
+                // vm.isLoading = true; 
+
+                // 不可直接操作store資料；此為錯誤示範
+                // this.$store.state.isLoading = true;
+
+                // 以下正確示範，使用vuex觀念操作；打action。
+                this.$store.dispatch('updateLoading', true);
 
                 // 加入購物車所需丟入的資料結構。
                 const addingItem = {
@@ -343,7 +358,10 @@
                     // $('#productModal').modal('hide')
 
                     // 讀取消失
-                    vm.isLoading = false;
+                    // vm.isLoading = false;
+                    // this.$store.state.isLoading = false;
+
+                    this.$store.dispatch('updateLoading', false);
                 })
             },
         },
