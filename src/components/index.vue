@@ -17,6 +17,10 @@
         <Alert />
 
 
+        <!-- 滑回去 -->
+        <div id="slider" v-show='scroller > 300'>up</div>
+
+
         <!-- 首頁上方大圖示 -->
         <section class="container-fluid mb-3">
             <div class="row index_jumbo_image bg-cover">
@@ -278,7 +282,7 @@
         </section>
 
         <!-- Footer元件-->
-        <Index_Footer/>
+        <Index_Footer />
 
     </div>
 </template>
@@ -298,14 +302,13 @@
         },
         data() {
             return {
-                // isLoading: false, 
-                //全域loading控制改使用 vuex控制
+                scroller:''
             }
         },
 
-        // 使用computed讀取 vuex中的資料
-        computed:{
-            isLoading(){
+        // 使用computed獲取Vuex中的資料
+        computed: {
+            isLoading() {
                 return this.$store.state.isLoading;
             },
         },
@@ -327,14 +330,6 @@
                 const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
                 const vm = this;
 
-                // 讀取出現
-                //此頁data修改為 vuex資料控制
-                // vm.isLoading = true; 
-
-                // 不可直接操作store資料；此為錯誤示範
-                // this.$store.state.isLoading = true;
-
-                // 以下正確示範，使用vuex觀念操作；打action。
                 this.$store.dispatch('updateLoading', true);
 
                 // 加入購物車所需丟入的資料結構。
@@ -364,8 +359,31 @@
                     this.$store.dispatch('updateLoading', false);
                 })
             },
+            getScroller(){
+                this.scroller = document.body.scrollTop || document.documentElement.scrollTop;
+            },
+        },
+        mounted() {
+
+            // 把button監聽click事件、卷軸滾動最上方。
+            let oBtn = document.getElementById('slider');
+            oBtn.addEventListener('click', function (e) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // 卷軸滾動添加事件。
+            let vm = this;
+            window.onscroll = function(){              
+                vm.getScroller()
+            }
+
         },
     }
+
+
 
 </script>
 
@@ -405,5 +423,15 @@
 
     .today_photo_3 {
         background-image: url("../assets/image/product_king.jpg");
+    }
+
+    #slider {
+        width: 50px;
+        height: 50px;
+        background-color:blue;
+        position: fixed;
+        bottom: 100px;
+        right: 100px;
+        z-index: 99;
     }
 </style>

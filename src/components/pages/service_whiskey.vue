@@ -168,22 +168,17 @@
 
     data() {
       return {
-
         sortedProduct: 'all', //控制篩選產品、預設為取所有產品
-
-        products: {}, //所有產品data
         product: { Qty: '1' }, //單一筆產品data
-
-        isLoading: false, //全域loading控制
 
         status: {
           loadingItem: '', //讀取icon顯示/出現控制
         },
-
       }
     },
-    // 過濾塞選
+
     computed: {
+      // 過濾塞選
       filterProducts: function () {
         var vm = this;
 
@@ -210,26 +205,38 @@
           })
         }
       },
+
+      // 從state獲得資料
+      products: function(){
+        return this.$store.state.products;
+      },
+
+      isLoading(){
+        return this.$store.state.isLoading;
+      },
+      
     },
     methods: {
 
       // 取得所有產品列表
       getProducts() {
-        const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products/all`;
-        // const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/products/all`;
-        // const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/products`;
-        // const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products?page=${page}`;
-        const vm = this;
 
-        vm.isLoading = true; //打開全域讀取
+        //打action
+        this.$store.dispatch('getProducts');
 
-        this.$http.get(api).then((response) => {
+        // 以下舊有方法；
+        // const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products/all`;
+        // const vm = this;
+        // //打開全域讀取
+        // vm.isLoading = true;
 
-          console.log('產品列表:', response.data);
-          vm.isLoading = false; // 結束全域讀取
-          vm.products = response.data.products;
+        // this.$http.get(api).then((response) => {
 
-        })
+        //   console.log('產品列表:', response.data);
+        //   vm.isLoading = false; // 結束全域讀取
+        //   vm.products = response.data.products;
+
+        // })
       },
       //取得單一筆產品
       getSingleProduct(id) {
