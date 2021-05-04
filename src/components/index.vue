@@ -18,7 +18,7 @@
 
 
         <!-- 滑回去 -->
-        <div id="slider" v-show='scroller > 300'>up</div>
+        <div id="slider" v-show='scroller > 300'><i class="fa-3x fas fa-arrow-circle-up"></i></div>
 
 
         <!-- 首頁上方大圖示 -->
@@ -302,7 +302,7 @@
         },
         data() {
             return {
-                scroller:''
+                scroller: ''
             }
         },
 
@@ -327,39 +327,13 @@
             },
             // 加入購物車
             addtoCart(id, qty = 1) {
-                const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-                const vm = this;
 
-                this.$store.dispatch('updateLoading', true);
+                this.$store.dispatch('AddToCart', { id, qty })
+                // Alert提示訊息彈出、可參考removeCart，移入action執行。
+                this.$bus.$emit('message:push', '已加入購物車', 'success')
 
-                // 加入購物車所需丟入的資料結構。
-                const addingItem = {
-                    product_id: id,
-                    qty: qty,
-                };
-
-                this.$http.post(api, { data: addingItem }).then((response) => {
-                    console.log(response.data);
-
-
-                    // 註冊event bus事件、在此頁面點擊、並NavBar接收與觸發。
-                    vm.$bus.$emit('shopCart:update');
-
-                    // Alert提示訊息彈出
-                    this.$bus.$emit('message:push', '已加入購物車', 'success')
-
-
-                    //關掉modal、首頁用不到。 
-                    // $('#productModal').modal('hide')
-
-                    // 讀取消失
-                    // vm.isLoading = false;
-                    // this.$store.state.isLoading = false;
-
-                    this.$store.dispatch('updateLoading', false);
-                })
             },
-            getScroller(){
+            getScroller() {
                 this.scroller = document.body.scrollTop || document.documentElement.scrollTop;
             },
         },
@@ -376,7 +350,7 @@
 
             // 卷軸滾動添加事件。
             let vm = this;
-            window.onscroll = function(){              
+            window.onscroll = function () {
                 vm.getScroller()
             }
 
@@ -426,12 +400,12 @@
     }
 
     #slider {
-        width: 50px;
-        height: 50px;
-        background-color:blue;
         position: fixed;
-        bottom: 100px;
-        right: 100px;
+        bottom: 80px;
+        right: 80px;
         z-index: 99;
+        color: yellow;
+        opacity: 0.8;
+        cursor: pointer;
     }
 </style>

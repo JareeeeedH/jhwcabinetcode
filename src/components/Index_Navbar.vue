@@ -162,33 +162,21 @@
   export default {
     data() {
       return {
-        cartList: {
-          carts: {}
-        },
-
       }
+    },
+    computed:{
+      cartList(){
+        return this.$store.state.cartList;
+      },
     },
     methods: {
       getCart() {
-        const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-        const vm = this;
-
-        this.$http.get(api).then((response) => {
-          vm.cartList = response.data.data;
-          console.log('購物車清單', response.data.data);
-        })
+        this.$store.dispatch('getCart');
       },
       delCart(cartItem) {
-        const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart/${cartItem.id}`;
+        // dispatch；把要刪除的項目與Vue的this傳入。
         const vm = this;
-
-        this.$http.delete(api).then((response) => {
-
-          if (response.data.success) {
-            this.getCart();
-            this.$bus.$emit('message:push', '已刪除', 'danger')
-          }
-        })
+        this.$store.dispatch('removeCart', {cartItem, vm});
       },
 
     },
@@ -197,7 +185,7 @@
 
       this.getCart();
 
-      // 接收 event Bus
+      // created進來、全域註冊事件。
       vm.$bus.$on('shopCart:update', () => {
         vm.getCart();
       });
