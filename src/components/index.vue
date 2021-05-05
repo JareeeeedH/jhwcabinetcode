@@ -293,6 +293,9 @@
     import Index_Footer from './Index_Footer';
     import Alert from './AlertMessage';// Alert Message
 
+
+    import { mapGetters, } from 'vuex';
+
     export default {
         name: 'index',
         components: {
@@ -306,11 +309,9 @@
             }
         },
 
-        // 使用computed獲取Vuex中的資料
+        // mapGetters
         computed: {
-            isLoading() {
-                return this.$store.state.isLoading;
-            },
+            ...mapGetters(['isLoading',]),
         },
 
         methods: {

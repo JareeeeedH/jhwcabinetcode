@@ -159,20 +159,33 @@
 
 
 <script>
+
+// 使用mapGetters撈資料
+  import { mapGetters, mapActions } from 'vuex';
+
   export default {
     data() {
       return {
       }
     },
     computed:{
-      cartList(){
-        return this.$store.state.cartList;
-      },
+      // cartList(){
+      //   return this.$store.state.cartList;
+      // },
+
+      // mapGetters取資料、取代上面的從state獲得。
+      ...mapGetters(['cartList',])
     },
     methods: {
-      getCart() {
-        this.$store.dispatch('getCart');
-      },
+      // 打action；
+      // getCart() {
+      //   this.$store.dispatch('getCart');
+      // },
+
+      // mapActions取代 上面的打dispatch
+      ...mapActions(['getCart']),
+
+      
       delCart(cartItem) {
         // dispatch；把要刪除的項目與Vue的this傳入。
         const vm = this;
@@ -185,7 +198,7 @@
 
       this.getCart();
 
-      // created進來、全域註冊事件。
+      // created進來、event Bus全域註冊事件。
       vm.$bus.$on('shopCart:update', () => {
         vm.getCart();
       });

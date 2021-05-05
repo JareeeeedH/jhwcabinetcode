@@ -159,6 +159,8 @@
 
   import Alert from '../AlertMessage'; //Alert元件
 
+  import { mapGetters } from 'vuex'; //Vuex/ getters
+
   export default {
     components: {
       Index_Navbar,
@@ -206,10 +208,7 @@
         }
       },
 
-      // 從state獲得資料
-      products: function(){
-        return this.$store.state.products;
-      },
+      ...mapGetters(['products',]),
 
       isLoading(){
         return this.$store.state.isLoading;
@@ -224,19 +223,6 @@
         //打action
         this.$store.dispatch('getProducts');
 
-        // 以下舊有方法；
-        // const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products/all`;
-        // const vm = this;
-        // //打開全域讀取
-        // vm.isLoading = true;
-
-        // this.$http.get(api).then((response) => {
-
-        //   console.log('產品列表:', response.data);
-        //   vm.isLoading = false; // 結束全域讀取
-        //   vm.products = response.data.products;
-
-        // })
       },
       //取得單一筆產品
       getSingleProduct(id) {

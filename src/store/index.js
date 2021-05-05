@@ -105,4 +105,18 @@ export default new Vuex.Store({
 
     },
 
+    // getters把資料註冊到全域； Vue的store.mapGetters內
+    getters:{
+        isLoading(state){
+            return state.isLoading;
+        },
+        cartList(state){
+            return state.cartList;
+        },
+
+        products(state){
+            return state.products;
+        }
+    },
+
 });
