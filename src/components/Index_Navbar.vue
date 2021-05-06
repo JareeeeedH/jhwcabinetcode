@@ -160,7 +160,7 @@
 
 <script>
 
-// 使用mapGetters撈資料
+// 使用mapGetters、mapActions撈資料與方法
   import { mapGetters, mapActions } from 'vuex';
 
   export default {

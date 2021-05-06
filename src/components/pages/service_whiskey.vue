@@ -159,7 +159,7 @@
 
   import Alert from '../AlertMessage'; //Alert元件
 
-  import { mapGetters } from 'vuex'; //Vuex/ getters
+  import { mapGetters, mapActions } from 'vuex'; //Vuex/ getters
 
   export default {
     components: {
@@ -208,7 +208,7 @@
         }
       },
 
-      ...mapGetters(['products',]),
+      ...mapGetters('productsModules',['products',]),
 
       isLoading(){
         return this.$store.state.isLoading;
@@ -216,14 +216,17 @@
       
     },
     methods: {
+      
+      ...mapActions('productsModules',['getProducts']),
 
       // 取得所有產品列表
-      getProducts() {
+      // getProducts() {
 
         //打action
-        this.$store.dispatch('getProducts');
+        // this.$store.dispatch('getProducts');
 
-      },
+      // },
+
       //取得單一筆產品
       getSingleProduct(id) {
 
@@ -285,6 +288,7 @@
     },
 
     created() {
+
       this.getProducts();
 
       // event bus的使用方法；、載入元件後；可將這段用於任何要顯示的地方。

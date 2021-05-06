@@ -8,13 +8,17 @@ import axios from 'axios';
 
 Vue.use(Vuex)
 
+import productsModules from './products';
 
 export default new Vuex.Store({
 
     strict: true,
     state: {
         isLoading: false,
-        products: [],
+
+        // 拆分
+        // products: [],
+        
         cartList: {
             carts: {}
         },
@@ -27,19 +31,20 @@ export default new Vuex.Store({
         },
 
         // 非同步、打API/ 打mutations
-        getProducts(context) {
 
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products/all`;
-            context.commit('LOADING', true);
+        // getProducts(context) {
 
-            axios.get(api).then((response) => {
+        //     const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products/all`;
+        //     context.commit('LOADING', true);
 
-                context.commit('PRODUCTS', response.data.products)
-                console.log('取得產品列表', response.data)
+        //     axios.get(api).then((response) => {
 
-                context.commit('LOADING', false);
-            })
-        },
+        //         context.commit('PRODUCTS', response.data.products)
+        //         console.log('取得產品列表', response.data)
+
+        //         context.commit('LOADING', false);
+        //     })
+        // },
         getCart(context) {
 
             const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
@@ -85,7 +90,8 @@ export default new Vuex.Store({
                 console.log('新增產品:',response.data);
                 context.commit('LOADING', false)
                 context.dispatch('getCart')
-            })
+            });
+
         },
 
     },
@@ -94,10 +100,10 @@ export default new Vuex.Store({
         LOADING(state, status) {
             state.isLoading = status;
         },
-
-        PRODUCTS(state, target) {
-            state.products = target;
-        },
+        // 拆分
+        // PRODUCTS(state, target) {
+        //     state.products = target;
+        // },
 
         CART(state, target) {
             state.cartList = target;
@@ -114,9 +120,13 @@ export default new Vuex.Store({
             return state.cartList;
         },
 
-        products(state){
-            return state.products;
-        }
+        // products(state){
+        //     return state.products;
+        // }
+    },
+
+    modules:{
+        productsModules
     },
 
 });
