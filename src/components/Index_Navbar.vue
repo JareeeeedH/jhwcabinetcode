@@ -34,7 +34,7 @@
 
 
             <!-- 兩個 DropDown，一個是有商品、一個空車。 -->
-            <div style='width:650px' class="dropdown-menu dropdown-menu-right" v-if='cartList.carts.length != 0'>
+            <div style='width:650px; max-height: 400px; overflow: auto;' class="dropdown-menu dropdown-menu-right" v-if='cartList.carts.length != 0'>
               <table class="table">
                 <thead>
                   <tr>

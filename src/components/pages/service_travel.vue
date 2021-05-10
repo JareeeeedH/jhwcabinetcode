@@ -84,15 +84,20 @@
       </div>
     </div>
 
+
+     <Index_Footer />
+
   </div>
 </template>
 
 <script>
   import Index_Navbar from '../Index_Navbar';
+  import Index_Footer from '../Index_Footer';
 
   export default {
     components: {
       Index_Navbar,
+      Index_Footer,
     }
   }
 </script>

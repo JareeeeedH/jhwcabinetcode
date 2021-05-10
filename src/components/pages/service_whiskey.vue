@@ -171,7 +171,7 @@
     data() {
       return {
         sortedProduct: 'all', //控制篩選產品、預設為取所有產品
-        product: { Qty: '1' }, //單一筆產品data
+        product: { Qty: 1 }, //單一筆產品data
 
         status: {
           loadingItem: '', //讀取icon顯示/出現控制
@@ -239,7 +239,7 @@
           console.log('單一筆產品', response.data);
 
           vm.product = response.data.product;
-          vm.product.Qty = '1';
+          vm.product.Qty = 1;
 
           vm.status.loadingItem = '' //讀取消失
           $('#productModal').modal('show');

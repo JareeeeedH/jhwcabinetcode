@@ -148,7 +148,7 @@
 
                   <div class="col-6">
                     <div class="form-group">
-                      <label for="fn">First name</label>
+                      <label for="fn">姓氏</label>
                       <input required id="fn" required style="height: 50px;" type="text" class="form-control"
                         placeholder="姓">
                     </div>
@@ -156,7 +156,7 @@
 
                   <div class="col-6">
                     <div class="form-group">
-                      <label for="ln">Last Name</label>
+                      <label for="ln">名字</label>
                       <input required id="ln" style="height: 50px;" type="text" class="form-control" placeholder="名">
                     </div>
                   </div>
@@ -202,7 +202,7 @@
           <div class="d-none d-md-block col-md-6">
             <div class="bg-light text-barSecond border mb-3">
               <div class="p-2 text-center border-bottom border-barMain bg-light">
-                <h2>訂購人訊息</h2>
+                <h1>訂購人訊息</h1>
               </div>
               <table class="table">
                 <tbody>
@@ -240,7 +240,7 @@
             <div class="bg-light text-barSecond border">
 
               <div class="p-2 text-center border-bottom border-barMain">
-                <h2>購物清單</h2>
+                <h1>購物清單</h1>
               </div>
 
               <div class="row p-1 border-bottom" v-for="item in order.products" :key="item.id">
@@ -275,7 +275,7 @@
                 </div>
                 
               </div>
-              <div class="p-2 d-flex justify-content-end align-items-center h3">
+              <div class="p-1 d-flex justify-content-end align-items-center h3">
                 <span>
                   總計 {{ order.total | currency}}
                 </span>
