@@ -92,10 +92,11 @@
       </div>
 
     </div>
+
+    <Index_Footer />
+
+  
   </div>
-
-
-
   </div>
 
 </template>
@@ -103,11 +104,13 @@
 <script>
   import Alert from '../AlertMessage'; //痾樂
   import Index_Navbar from '../Index_Navbar';
+  import Index_Footer from '../Index_Footer';
 
   export default {
     components: {
       Alert,
-      Index_Navbar
+      Index_Navbar,
+      Index_Footer
 
     },
 

@@ -17,6 +17,10 @@
         <Alert />
 
 
+        <!-- 滑回去 -->
+        <div id="slider" v-show='scroller > 300'><i class="fa-3x fas fa-arrow-circle-up"></i></div>
+
+
         <!-- 首頁上方大圖示 -->
         <section class="container-fluid mb-3">
             <div class="row index_jumbo_image bg-cover">
@@ -278,7 +282,7 @@
         </section>
 
         <!-- Footer元件-->
-        <Index_Footer/>
+        <Index_Footer />
 
     </div>
 </template>
@@ -289,6 +293,9 @@
     import Index_Footer from './Index_Footer';
     import Alert from './AlertMessage';// Alert Message
 
+
+    import { mapGetters, } from 'vuex';
+
     export default {
         name: 'index',
         components: {
@@ -298,8 +305,13 @@
         },
         data() {
             return {
-                isLoading: false, //全域loading控制
+                scroller: ''
             }
+        },
+
+        // mapGetters
+        computed: {
+            ...mapGetters(['isLoading',]),
         },
 
         methods: {
@@ -316,38 +328,37 @@
             },
             // 加入購物車
             addtoCart(id, qty = 1) {
-                const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-                const vm = this;
 
-                // 讀取出現
-                vm.isLoading = true;
+                this.$store.dispatch('AddToCart', { id, qty })
+                // Alert提示訊息彈出、可參考removeCart，移入action執行。
+                this.$bus.$emit('message:push', '已加入購物車', 'success')
 
-                // 加入購物車所需丟入的資料結構。
-                const addingItem = {
-                    product_id: id,
-                    qty: qty,
-                };
-
-                this.$http.post(api, { data: addingItem }).then((response) => {
-                    console.log(response.data);
-
-
-                    // 註冊event bus事件、在此頁面點擊、並NavBar接收與觸發。
-                    vm.$bus.$emit('shopCart:update');
-
-                    // Alert提示訊息彈出
-                    this.$bus.$emit('message:push', '已加入購物車', 'success')
-
-
-                    //關掉modal、首頁用不到。 
-                    // $('#productModal').modal('hide')
-
-                    // 讀取消失
-                    vm.isLoading = false;
-                })
+            },
+            getScroller() {
+                this.scroller = document.body.scrollTop || document.documentElement.scrollTop;
             },
         },
+        mounted() {
+
+            // 把button監聽click事件、卷軸滾動最上方。
+            let oBtn = document.getElementById('slider');
+            oBtn.addEventListener('click', function (e) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // 卷軸滾動添加事件。
+            let vm = this;
+            window.onscroll = function () {
+                vm.getScroller()
+            }
+
+        },
     }
+
+
 
 </script>
 
@@ -387,5 +398,15 @@
 
     .today_photo_3 {
         background-image: url("../assets/image/product_king.jpg");
+    }
+
+    #slider {
+        position: fixed;
+        bottom: 80px;
+        right: 80px;
+        z-index: 99;
+        color: yellow;
+        opacity: 0.8;
+        cursor: pointer;
     }
 </style>

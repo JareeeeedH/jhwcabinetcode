@@ -59,7 +59,7 @@
                         <thead>
                           <tr>
                             <th scope="col" width="30">刪除</th>
-                            <th scope="col" class="d-none d-md-block">Photo</th>
+                            <th scope="col" class="d-none d-md-block">圖示</th>
                             <th scope="col">品名</th>
                             <th scope="col" width="60">數量</th>
                             <th scope="col">單價</th>
@@ -228,7 +228,7 @@
                   <div class="form-group">
 
                     <label for="useraddress">收件人地址</label>
-                    <input id="usrAddress" type="text" name="address" v-model="form.user.address" class="form-control"
+                    <input id="useraddress" type="text" name="address" v-model="form.user.address" class="form-control"
                       :class="classes">
                     <span class="invalid-feedback"> {{errors[0]}}</span>
 

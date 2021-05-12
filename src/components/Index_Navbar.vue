@@ -34,7 +34,7 @@
 
 
             <!-- 兩個 DropDown，一個是有商品、一個空車。 -->
-            <div style='width:650px' class="dropdown-menu dropdown-menu-right" v-if='cartList.carts.length != 0'>
+            <div style='width:650px; max-height: 400px; overflow: auto;' class="dropdown-menu dropdown-menu-right" v-if='cartList.carts.length != 0'>
               <table class="table">
                 <thead>
                   <tr>
@@ -159,36 +159,37 @@
 
 
 <script>
+
+// 使用mapGetters、mapActions撈資料與方法
+  import { mapGetters, mapActions } from 'vuex';
+
   export default {
     data() {
       return {
-        cartList: {
-          carts: {}
-        },
-
       }
     },
+    computed:{
+      // cartList(){
+      //   return this.$store.state.cartList;
+      // },
+
+      // mapGetters取資料、取代上面的從state獲得。
+      ...mapGetters(['cartList',])
+    },
     methods: {
-      getCart() {
-        const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-        const vm = this;
+      // 打action；
+      // getCart() {
+      //   this.$store.dispatch('getCart');
+      // },
 
-        this.$http.get(api).then((response) => {
-          vm.cartList = response.data.data;
-          console.log('購物車清單', response.data.data);
-        })
-      },
+      // mapActions取代 上面的打dispatch
+      ...mapActions(['getCart']),
+
+      
       delCart(cartItem) {
-        const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart/${cartItem.id}`;
+        // dispatch；把要刪除的項目與Vue的this傳入。
         const vm = this;
-
-        this.$http.delete(api).then((response) => {
-
-          if (response.data.success) {
-            this.getCart();
-            this.$bus.$emit('message:push', '已刪除', 'danger')
-          }
-        })
+        this.$store.dispatch('removeCart', {cartItem, vm});
       },
 
     },
@@ -197,7 +198,7 @@
 
       this.getCart();
 
-      // 接收 event Bus
+      // created進來、event Bus全域註冊事件。
       vm.$bus.$on('shopCart:update', () => {
         vm.getCart();
       });

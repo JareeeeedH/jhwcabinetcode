@@ -159,6 +159,8 @@
 
   import Alert from '../AlertMessage'; //Alert元件
 
+  import { mapGetters, mapActions } from 'vuex'; //Vuex/ getters
+
   export default {
     components: {
       Index_Navbar,
@@ -168,22 +170,17 @@
 
     data() {
       return {
-
         sortedProduct: 'all', //控制篩選產品、預設為取所有產品
-
-        products: {}, //所有產品data
-        product: { Qty: '1' }, //單一筆產品data
-
-        isLoading: false, //全域loading控制
+        product: { Qty: 1 }, //單一筆產品data
 
         status: {
           loadingItem: '', //讀取icon顯示/出現控制
         },
-
       }
     },
-    // 過濾塞選
+
     computed: {
+      // 過濾塞選
       filterProducts: function () {
         var vm = this;
 
@@ -210,27 +207,26 @@
           })
         }
       },
+
+      ...mapGetters('productsModules',['products',]),
+
+      isLoading(){
+        return this.$store.state.isLoading;
+      },
+      
     },
     methods: {
+      
+      ...mapActions('productsModules',['getProducts']),
 
       // 取得所有產品列表
-      getProducts() {
-        const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products/all`;
-        // const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/products/all`;
-        // const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/products`;
-        // const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products?page=${page}`;
-        const vm = this;
+      // getProducts() {
 
-        vm.isLoading = true; //打開全域讀取
+        //打action
+        // this.$store.dispatch('getProducts');
 
-        this.$http.get(api).then((response) => {
+      // },
 
-          console.log('產品列表:', response.data);
-          vm.isLoading = false; // 結束全域讀取
-          vm.products = response.data.products;
-
-        })
-      },
       //取得單一筆產品
       getSingleProduct(id) {
 
@@ -243,7 +239,7 @@
           console.log('單一筆產品', response.data);
 
           vm.product = response.data.product;
-          vm.product.Qty = '1';
+          vm.product.Qty = 1;
 
           vm.status.loadingItem = '' //讀取消失
           $('#productModal').modal('show');
@@ -292,6 +288,7 @@
     },
 
     created() {
+
       this.getProducts();
 
       // event bus的使用方法；、載入元件後；可將這段用於任何要顯示的地方。

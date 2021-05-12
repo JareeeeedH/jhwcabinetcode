@@ -6,6 +6,10 @@
     </div>
 
 
+     <!-- Alert元件 -->
+    <Alert />
+
+
     <!-- jumbo -->
     <section class="mb-5">
       <div class="jumbo d-flex align-items-end">
@@ -240,10 +244,13 @@
   import Index_Navbar from '../Index_Navbar';
   import Index_Footer from '../Index_Footer';
 
+  import Alert from '../AlertMessage'; //Alert元件
+
   export default {
     components: {
       Index_Navbar,
       Index_Footer,
+      Alert
     }
   }
 </script>

@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import Vuex from 'vuex';
 
 // import Vue-loading-overlay 的 元件與 CSS
 import Loading from 'vue-loading-overlay';
@@ -22,6 +23,9 @@ import dateFilter from './components/pages/filters/date';
 
 import App from './App';
 import router from './router'; //import router 導入router
+
+// 載入vuex
+import store from './store';
 
 // 註冊event bus檔案
 import './bus';
@@ -56,6 +60,9 @@ axios.defaults.withCredentials = true;
 // Axios啟用
 Vue.use(VueAxios, axios);
 
+// vuex啟用
+Vue.use(Vuex)
+
 //Loading啟用元件
 Vue.component('Loading', Loading)
 
@@ -70,6 +77,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
   router, //router配置
