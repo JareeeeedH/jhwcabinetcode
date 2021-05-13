@@ -1,0 +1,76 @@
+$colorRed: red;
+.styleTest{
+    color: $colorRed;
+}
+/////////////////////////////////////////////////////////////
+
+//字體選擇
+.font_1 {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.font_2 {
+  font-family: 'Reggae One', cursive;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+// 副色選擇
+  .barSecond{
+    color: #421e1e
+    //#678F8d
+  }
+  .bg-barSecond{
+    background-color: #421e1e,
+  }
+
+
+.bg-cover {
+    background-size: cover;
+    background-position: center center;
+  }
+
+.bg-lighter {
+background-color: rgba(0, 0, 0, 0.5)
+  }
+
+
+
+.spacing {
+  letter-spacing: 10px;
+  }
+
+  // 字體垂直
+.writting-vertical {
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+  }
+
+  // Navber購物車的 badge
+.btn-cart .badge {
+  position: absolute;
+}
+
+
+// NavLink的樣式
+.nav_text {
+    color: white;
+  }
+.nav_text:hover {
+    border-bottom: 2px solid white;
+    color: white;
+  }
+
+
+
+
+// 控制dropDown寬度(暫時用不到)
+@media (min-width: 768px) {
+  .dropdown-md {
+    min-width: 600px;
+  }
+
+}

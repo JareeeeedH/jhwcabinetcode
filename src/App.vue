@@ -1,28 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <!-- 兩個router_view 示範。 -->
+    <!-- <router-view name="menu"></router-view>    -->
+    
+    <div class="content">
+      <router-view></router-view>
+    </div>
+
+
+
+    <!-- 全域插入Footer -->
+    <!-- <div class="FOOTER">
+      <Index_Footer />
+    </div> -->
+
+
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+<script>
+  import Index_Footer from './components/Index_Footer';
+
+  export default {
+    name: 'App',
+    components: {
+      Index_Footer,
+    },
   }
-}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import "./assets/all.scss";
+
+
+  /* 控制內容與 footer固定下方 */
+  .content {
+    min-height: calc(100vh - 70px);
+  }
+
+  .FOOTER {
+    height: 70px;
+  }
 </style>
