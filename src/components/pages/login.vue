@@ -1,21 +1,26 @@
 <template>
   <div>
-    <form class="form-signin" @submit.prevent="signin">
-      <!-- <img class="mb-4" src="@/assets/image/jia.jpg" alt="" width="" height=""> -->
-      <h1 class="h3 mb-3 font-weight-normal text-center">管理登入</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus v-model="user.username">
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required v-model="user.password">
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="btn btn-lg btn-barMain btn-block" type="submit">登入</button>
-      <router-link class="btn btn-lg btn-barMain btn-block" type="submit" to="/index">前往首頁</router-link>
-      <p class="mt-5 mb-3 text-muted">&copy; 2021 Jared's Whiskey Cabinet</p>
-    </form>
+    <div id='bg'>
+    </div>
+    <div>
+      <form class="form-signin" @submit.prevent="signin">
+        <!-- <img class="mb-4" src="@/assets/image/jia.jpg" alt="" width="" height=""> -->
+        <h1 class="h3 mb-3 font-weight-normal text-center">管理登入</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus v-model="user.username">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required v-model="user.password">
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-barMain btn-block" type="submit">登入</button>
+        <router-link class="btn btn-lg btn-barMain btn-block" type="submit" to="/index">前往首頁</router-link>
+      </form>
+      <h5 class="mt-5 mb-3 copyright"> &copy; 2021 Jared's Whiskey Cabinet</h5>
+      <h5 class="mt-5 mb-3 email"> e-mail: jared_cabinet@gmail.com</h5>
+    </div>
   </div>
 </template>
 
@@ -70,6 +75,31 @@ export default {
 html,
 body {
   height: 100%;
+}
+
+#bg{
+  position:absolute;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../../assets/image/login_bg.jpg');
+  z-index: -1;
+  opacity: 0.7;
+  background-position: center;
+  background-size: cover;
+}
+
+.copyright{
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  color: white;
+}
+
+.email{
+  position: absolute;
+  bottom: 70px;
+  text-align: center;
+  color: white;
 }
 
 body {

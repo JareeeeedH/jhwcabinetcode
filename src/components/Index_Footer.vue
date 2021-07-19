@@ -15,7 +15,10 @@
                     <div class="col-md-6 text-white font_2 text-right">
                         <i class="fab fa-facebook fa-2x mx-1"></i>
                         <i class="fab fa-instagram fa-2x mx-1"></i>
-                        <i class="fab fa-github fa-2x mx-1"></i>
+                        <a target="_blank" href="https://github.com/JareeeeedH/jhwcabinetcode" style='color: white'>
+                            <i class="fab fa-github fa-2x mx-1"></i>
+                        </a>
+
                     </div>
                 </div>
 

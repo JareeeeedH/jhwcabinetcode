@@ -1,0 +1,34 @@
+.serviceRec {
+  background-color: black;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  filter: blur(3px);
+  transition: 0.5s;
+}
+
+.serviceRec:hover {
+  filter: blur(0.5px);
+  transform: scale(1.2);
+}
+
+.item-tag {
+  position: absolute;
+  left: 20px;
+  padding: 7px;
+  letter-spacing: 5px;
+  background-color: brown;
+  color: white;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}
+
+.item-heart {
+  position: absolute;
+  padding: 5px;
+  font-size: 20px;
+  right: 5px;
+  color: #0f3057;
+}/*# sourceMappingURL=index_Style.css.map */

@@ -18,6 +18,10 @@ $barSecond: #00587A;
     box-shadow: 0px 2px 10px rgba(0, 46, 161,0.7);
    }
 
+  .product-list:hover{
+    border-bottom: 2px solid $barMain;
+    cursor: pointer;
+  }
 
   .list-group-item:hover{
     border-bottom: 2px solid $barMain;

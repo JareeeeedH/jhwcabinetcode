@@ -1,0 +1,63 @@
+.styleTest {
+  color: red;
+}
+
+.font_1 {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.font_2 {
+  font-family: "Reggae One", cursive;
+}
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.barSecond {
+  color: #421e1e;
+}
+
+.bg-barSecond {
+  background-color: #421e1e;
+}
+
+.bg-cover {
+  background-size: cover;
+  background-position: center center;
+}
+
+.bg-lighter {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.spacing {
+  letter-spacing: 10px;
+}
+
+.writting-vertical {
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}
+
+.btn-cart .badge {
+  position: absolute;
+}
+
+.nav_text {
+  color: white;
+  box-sizing: border-box;
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  transition: all 0.3s;
+}
+
+.nav_text:hover {
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .dropdown-md {
+    min-width: 600px;
+  }
+}/*# sourceMappingURL=utilities.css.map */

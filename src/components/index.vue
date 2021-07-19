@@ -105,30 +105,30 @@
                     <div class="col-12 col-md-12">
                         <h3 class="text-barMain font-weight-bold">最新消息</h3>
                         <ul class="list-group" style='list-style: none'>
+                            <li class="border-bottom h6 pb-1 pt-3">
+                                <span class="text-danger">2021/07/15</span>
+                                <span> 88節活動開跑，防疫物資不可少，全館消費下單即享30%優惠，折扣碼: <span class="text-success">stayhome</span>。</span>
+                            </li>
+                            <li class="border-bottom h6 pb-1 pt-3">
+                                <span class="text-danger">2021/06/15</span>
+                                <span> 羅芙奧台北2021春季藏酒拍賣會；2021/07/15 (四) 下午2:00，請各位共襄盛舉。</span>
+                            </li>
 
+                            <li class="border-bottom h6 pb-1 pt-3">
+                                <span class="text-danger">2021/05/10</span>
+                                <span> 國際疫苗進入大量接踵階段，今年有望開放旅遊服務，行程規劃中，敬請期待。</span>
+                            </li>
+                             <li class="border-bottom h6 pb-1 pt-3">
+                                <span class="text-danger">2021/03/15</span>
+                                <span> 泥煤品酩會，2021/ 07/ 30，舉辦於高雄 Roxanne's Bar，即日起開放報名。</span>
+                            </li>
                             <li class="border-bottom h6 pb-1 pt-3">
                                 <span class="text-danger">2021/03/01</span>
-                                <span>店長當月壽星，邀請大家喝起來，下單即享20%優惠，折扣碼: <span class="text-success">drinkingUp</span>。</span>
+                                <span> 店長當月壽星，邀請大家喝起來，下單即享20%優惠，折扣碼: <span class="text-success">drinkingUp</span>。</span>
                             </li>
-
-                            <li class="border-bottom h6 pb-1 pt-3">
-                                <span class="text-danger">2021/02/14</span>
-                                <span>傑瑞酒業祝您牛年行大運，提醒各位春節期間，理性飲酒。</span>
-                            </li>
-
-                            <li class="border-bottom h6 pb-1 pt-3">
-                                <span class="text-danger">2021/02/10</span>
-                                <span>國際疫苗進入大量接踵階段，今年有望開放旅遊服務，行程規劃中，敬請期待。</span>
-                            </li>
-
-                            <li class="border-bottom h6 pb-1 pt-3">
-                                <span class="text-danger">2021/01/15</span>
-                                <span>泥煤品酩會，2021/ 05/ 30，舉辦於高雄 Roxanne's Bar，即日起開放報名。</span>
-                            </li>
-
                             <li class="border-bottom h6 pb-1 pt-3">
                                 <span class="text-danger">2020/03/15</span>
-                                <span>因應疫情關係，旅遊服務暫停服務。</span>
+                                <span> 因應疫情關係，旅遊服務暫停服務。</span>
                             </li>
 
                         </ul>
@@ -220,9 +220,6 @@
                                 <div class="item-tag">
                                     本日精選
                                 </div>
-                                <div class="item-heart">
-                                    <i class="far fa-heart"></i>
-                                </div>
                             </div>
                             <div style='min-height: 80px;'
                                 class="font-weight-bold d-flex text-center align-items-center">
@@ -241,9 +238,6 @@
                                 <div class="item-tag">
                                     本日精選
                                 </div>
-                                <div class="item-heart">
-                                    <i class="far fa-heart"></i>
-                                </div>
                             </div>
                             <div style='min-height: 80px;'
                                 class="font-weight-bold d-flex text-center align-items-center">
@@ -261,9 +255,6 @@
                             <div class="bg-cover today_photo_3" style="position:relative ;height: 315px;">
                                 <div class="item-tag">
                                     本日精選
-                                </div>
-                                <div class="item-heart">
-                                    <i class="far fa-heart"></i>
                                 </div>
                             </div>
                             <div style='min-height: 80px;'

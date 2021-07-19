@@ -110,6 +110,10 @@
                 </li>
 
                 <li class="nav-item">
+                  <a target='_blank' class="h5 mb-0 nav-link nav_text" href="https://jareeeeedh.github.io/whiskeyfun/#/">評論快搜</a>
+                </li>
+
+                <li class="nav-item">
                   <router-link class="h5 mb-0 nav-link nav_text" to="/admin/products"><i class="fas fa-user"></i>
                   </router-link>
                 </li>

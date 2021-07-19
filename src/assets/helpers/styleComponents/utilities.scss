@@ -58,6 +58,9 @@ background-color: rgba(0, 0, 0, 0.5)
 // NavLink的樣式
 .nav_text {
     color: white;
+    box-sizing: border-box;
+    border-bottom: 2px solid rgb(255, 255, 255,0);
+    transition: all 0.3s;
   }
 .nav_text:hover {
     border-bottom: 2px solid white;
